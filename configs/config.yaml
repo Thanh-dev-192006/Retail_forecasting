@@ -1,0 +1,42 @@
+# Configuration for Favorita Grocery Sales Forecasting project
+
+paths:
+  raw_data_dir: "data/raw"
+  interim_data_dir: "data/interim"
+  processed_data_dir: "data/processed"
+  model_dir: "models"
+  reports_dir: "reports"
+  figures_dir: "reports/figures"
+  error_analysis_dir: "reports/error_analysis"
+
+data_files:
+  train: "train.csv"
+  stores: "stores.csv"
+  items: "items.csv"
+  transactions: "transactions.csv"
+  oil: "oil.csv"
+  holidays: "holidays_events.csv"
+
+cross_validation:
+  n_splits: 5
+  test_size: 16  # Favorita competition test period is 16 days (2017-08-16 to 2017-08-31)
+  gap: 0
+
+optuna:
+  n_trials: 50
+  timeout: 3600  # 1 hour
+  study_name: "favorita_sarima_tuning"
+  storage: "sqlite:///models/optuna_study.db"
+  search_space:
+    sarima:
+      p: [0, 1, 2]
+      d: [0, 1]
+      q: [0, 1, 2]
+      P: [0, 1]
+      D: [0, 1]
+      Q: [0, 1]
+      s: [7]  # Weekly seasonality
+
+mlflow:
+  experiment_name: "Favorita_Grocery_Sales_Forecasting"
+  tracking_uri: "mlruns"

@@ -216,3 +216,32 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# ==========================================
+# Project Specific Exclusions
+# ==========================================
+# Ignore datasets in raw, interim, processed except .gitkeep
+data/raw/*.csv
+data/raw/*.zip
+data/raw/*.xlsx
+!data/raw/.gitkeep
+
+data/interim/*
+!data/interim/.gitkeep
+
+data/processed/*
+!data/processed/.gitkeep
+
+# Ignore models and logs
+models/*
+!models/.gitkeep
+mlruns/
+.env
+
+# Ignore figures and error analysis reports except .gitkeep
+reports/figures/*
+!reports/figures/.gitkeep
+reports/error_analysis/*
+!reports/error_analysis/.gitkeep
+dashboards/*
+!dashboards/.gitkeep
