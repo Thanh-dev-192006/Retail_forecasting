@@ -4,6 +4,8 @@ paths:
   raw_data_dir: "data/raw"
   interim_data_dir: "data/interim"
   processed_data_dir: "data/processed"
+  splits_dir: "data/processed/splits"
+  cleaned_dir: "data/processed/cleaned"
   model_dir: "models"
   reports_dir: "reports"
   figures_dir: "reports/figures"
@@ -11,11 +13,12 @@ paths:
 
 data_files:
   train: "train.csv"
+  test: "test.csv"
   stores: "stores.csv"
-  items: "items.csv"
   transactions: "transactions.csv"
   oil: "oil.csv"
   holidays: "holidays_events.csv"
+  sample_submission: "sample_submission.csv"
 
 cross_validation:
   n_splits: 5
@@ -25,7 +28,7 @@ cross_validation:
 optuna:
   n_trials: 50
   timeout: 3600  # 1 hour
-  study_name: "favorita_sarima_tuning"
+  study_name: "favorita_xgboost_tuning"
   storage: "sqlite:///models/optuna_study.db"
   search_space:
     sarima:
