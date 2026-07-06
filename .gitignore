@@ -245,3 +245,8 @@ reports/error_analysis/*
 !reports/error_analysis/.gitkeep
 dashboards/*
 !dashboards/.gitkeep
+notes/*
+!notes/.gitkeep
+.claude/*
+!.claude/.gitkeep
+CLAUDE.md
